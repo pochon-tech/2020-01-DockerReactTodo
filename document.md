@@ -57,10 +57,12 @@ $ docker-compose run --rm app sh -c "npm install -g create-react-app && create-r
 +   command: sh -c "yarn start"
 ```
 - dev-server port変更（標準：3000
+- HMRの有効化
 ```
 $ cd app
 $ vi .env
 PORT=8001
+CHOKIDAR_USEPOLLING=true
 $ cd ..
 ```
 - React Start
@@ -69,9 +71,46 @@ $ docker-compose up -d
 $ docker-compose ps
 ```
 
+### コードレシピ
+
+**配列の削除**
+```javascript
+  const arr1 = ['a','b','c','d']
+  // 'b'（index=1）の削除例
+  const index = 1
+  // console.log(arr1.slice(0,index)) // ['a']
+  // console.log(arr1.slice(index+1)) // ['c','d']
+  const arr2 = [...arr1.slice(0,index), ...arr1.slice(index+1)]
+  console.log(arr2)
+```
+
+**importとexport**
+```javascript
+  // components/main.js
+  export default class Todo extends Component {}
+  // index.js
+  import { Todo } from './components/main' 
+  // Attempted import error: 'Todo' is not exported from './components/main'.
+  import Todo from './components/main'
+  // Ok
+```
+- https://qiita.com/HIGAX/items/28f3bec814928b7395da
+- export default class : そのclassがimportされるときにdefaultで呼ばれる
+  - `import X from './xxx'`
+- export class : どのclassをimportするか指定する必要
+  - `import { X } from './xxx'`
+
 ### 参考サイト
-Docker+Reactの環境構築
-https://blog.web.nifty.com/engineer/2714
-dev-server Port変更方法
-https://qiita.com/urouro_net/items/dd7166f9728d08bc933b
-https://github.com/facebook/create-react-app/issues/1083
+**Docker+Reactの環境構築**
+- https://blog.web.nifty.com/engineer/2714
+
+**dev-server Port変更方法**
+- https://qiita.com/urouro_net/items/dd7166f9728d08bc933b
+- https://github.com/facebook/create-react-app/issues/1083
+
+**DockerでのHMR設定**
+- https://stackoverflow.com/questions/55874547/how-to-handle-hot-reloading-in-a-react-app-inside-docker-inside-wls
+
+**React Todo入門**
+- https://taroken.org/react-todo-app-for-beginners/
+- https://qiita.com/TsutomuNakamura/items/72d8cf9f07a5a30be048
