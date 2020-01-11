@@ -12,15 +12,21 @@ export default class Todo extends Component {
     this.updateTodo = this.updateTodo.bind(this)
     this.removeTodo = this.removeTodo.bind(this)
   }
+  updateLocalStorage(updateTasks) {
+    // ※localstorageのデータはString
+    localStorage.setItem('tasks', JSON.stringify(updateTasks))
+  }
   updateTodo(value) {
     const updateTasks = this.state.tasks
     updateTasks.push(value)
     this.setState({ tasks: updateTasks })
+    this.updateLocalStorage(updateTasks)
   }
   removeTodo(value) {
     const updateTasks = this.state.tasks
     updateTasks.splice(updateTasks.indexOf(value), 1);
     this.setState({tasks: updateTasks})
+    this.updateLocalStorage(updateTasks)
   }
   render() {
     return (
