@@ -11,7 +11,7 @@ export default class AddTodo extends Component {
     const input = event.target.querySelector('input')
     const value = input.value
     input.value = ''
-    this.props.updateTodo(value)
+    this.props.update(value)
   }
   render() {
     return (
