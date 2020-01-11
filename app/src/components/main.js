@@ -4,8 +4,10 @@ import ListTodo from './ListTodo'
 
 export default class Todo extends Component {
   
-  constructor() {
+  constructor(props) {
     super()
+    // stateに持たせることで可変にさせる
+    this.state = { tasks: props.tasks }
   }
   
   render() {
@@ -13,7 +15,7 @@ export default class Todo extends Component {
       <div>
           <h1>Todo Example</h1>
           <AddTodo />
-          <ListTodo tasks={this.props.tasks} />
+          <ListTodo tasks={this.state.tasks} />
       </div>
     )
   }
