@@ -114,3 +114,9 @@ $ docker-compose ps
 **React Todo入門**
 - https://taroken.org/react-todo-app-for-beginners/
 - https://qiita.com/TsutomuNakamura/items/72d8cf9f07a5a30be048
+
+**エラー集**
+- https://note.crohaco.net/2018/react-errors-warnings/
+
+**ReactComponentにおけるキーの指定**
+- https://qiita.com/koba04/items/a4d23245d246c53cd49d
