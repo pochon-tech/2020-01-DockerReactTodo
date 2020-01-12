@@ -71,6 +71,15 @@ $ docker-compose up -d
 $ docker-compose ps
 ```
 
+### React Router
+
+- install
+```bash
+$ yarn add react-transition-group react-router-dom
+```
+- `react-transition-group` : CSSアニメーションを扱うためのライブラリ
+- `react-router-dom` : ルーティングを扱うためのライブラリ
+
 ### コードレシピ
 
 **配列の削除**
@@ -120,3 +129,9 @@ $ docker-compose ps
 
 **ReactComponentにおけるキーの指定**
 - https://qiita.com/koba04/items/a4d23245d246c53cd49d
+
+**React Routerを試す**
+- https://qiita.com/katatu801/items/81253b54b6b6713e1332
+
+**ReactでCSSアニメーションを扱う**
+- https://qiita.com/koedamon/items/2665ea80f19589aa2f7d
