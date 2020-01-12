@@ -80,6 +80,17 @@ $ yarn add react-transition-group react-router-dom
 - `react-transition-group` : CSSアニメーションを扱うためのライブラリ
 - `react-router-dom` : ルーティングを扱うためのライブラリ
 
+- 必要なモジュール群
+- `import { BrowserRouter as Router, Link, Route } from "react-router-dom"`
+  - BrowserRouter
+    - 画面遷移時にヒストリーAPIに履歴情報を追加してくれるコンポーネント
+    - BrowserRouterの子要素にRouteとLinkを入れて使用
+  - Link
+    - aタグ
+    - to要素に指定したlocaltion.pathnameへUrlを変更
+  - Route 
+    - localtion.pathnameが、path要素に指定したものとマッチしていた場合、componentに渡されたReactコンポーネントを描写
+    
 ### コードレシピ
 
 **配列の削除**
